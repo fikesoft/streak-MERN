@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 // Middleware to hash passwords
 export const hashPassword = async (req, res, next) => {
