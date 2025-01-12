@@ -1,0 +1,45 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.home-container{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+    &-hero{
+        img{
+            max-height: 200px;
+        }
+    }
+    &-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        gap: 24px;
+        max-width: 530px;
+        //Title styling
+        .title{
+            @include header-font($text-align:center);
+        }
+        .text{
+            @include  text-font($text-align:center);
+
+        }
+        .btn-started{
+            display: flex;
+            gap: 8px;
+            align-items:center;
+            @include button();
+            i{
+                margin-top: 3px;
+            }
+            &:hover{
+                @include button-hover();
+            }
+        }
+
+    }
+}
+
+//FULL ADAPTABILITY  NO NEED FOR MEDIAS

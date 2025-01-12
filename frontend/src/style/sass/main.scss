@@ -1,0 +1,22 @@
+@use './mixins' as *;
+@use './variables' as *;
+//Import other sections
+@use './section-component/home' as *;
+@use './section-component/login' as *;
+@use './section-component//navbar' as *;
+@use  './section-component/congrats' as *;
+@use './section-component/user-dashboard' as *;
+@use './section-component/admnin' as * ;
+//Import icons
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
+.container{
+    background-color: $bg-color;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0px 20px;
+}

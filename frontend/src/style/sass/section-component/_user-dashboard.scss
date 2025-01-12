@@ -1,0 +1,142 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.user-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  .streak-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include text-font();
+    .streak-title {
+      @include header-font();
+      text-align: center;
+      span {
+        color: $bg-button;
+      }
+    }
+  }
+
+  .quote-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 16px;
+    width: 90%;
+    border-radius: 12px;
+    background-color: $bg-form;
+    .title-quote {
+      @include header-font($font-size: 16px, $line-height: normal);
+    }
+    .text-quote {
+      @include text-font($font-size: 16px, $text-align: left);
+    }
+  }
+
+  .calendar {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    border-radius: 24px;
+    padding: 20px;
+    padding-bottom: 40px;
+
+    &-controls-month {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 2px solid #e4e5e7;
+      i {
+        margin-top: 10px;
+        font-size: 36px;
+        color: $calendar-arrows-color;
+        cursor: pointer;
+      }
+      .calendar-title {
+        @include header-font();
+        text-transform: uppercase;
+        color: $calendar-title-color;
+      }
+    }
+
+    .calendar-grid {
+      padding-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      position: relative;
+      overflow: hidden;
+        .days{
+            @include text-font();
+            
+            color: $bg-button;
+        }
+      // Common transition for all grid cells
+      .calendar-cell {
+        width: 40px;
+        height: 40px;
+        background-color: $calendar-circle-color;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .calendar-cell.empty {
+        visibility: hidden;
+      }
+
+      .calendar-cell.single-streak {
+        background-color: $bg-button;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include text-font();
+        font-size: 16px;
+        
+      }
+
+      .calendar-cell.multiple-streak {
+        background-color: #E2C5E7;
+      }
+
+      .flame-icon {
+        max-width: 16px;
+        max-height: 16px;
+      }
+    }
+    @keyframes slideLeft {
+        from {
+          transform: translateX(5%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      @keyframes slideRight {
+        from {
+          transform: translateX(5%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      .calendar-grid.slide-left {
+        animation: slideLeft 0.5s ease-out;
+      }
+      .calendar-grid.slide-right {
+        animation: slideRight 0.5s ease-out;
+      }
+      
+  }
+}
+

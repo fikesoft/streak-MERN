@@ -1,0 +1,20 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+.admin-container{
+    display: flex;
+    flex-direction: column;
+    padding: 40px 80px;
+    background-color: $bg-form;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    h1{
+        @include header-font();
+        text-align: center
+    }
+    p{
+        @include text-font();
+        text-align: center;
+    }
+}

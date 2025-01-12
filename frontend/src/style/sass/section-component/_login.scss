@@ -1,0 +1,128 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+.login-register-container{
+    padding: 48px;
+    background-color:$bg-form ;
+    border-radius: 24px;
+    .login-register-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        min-width: 430px;
+        .title{
+            @include header-font();
+        }
+        .text{
+            @include text-font();
+        }
+        .error-container{
+            display: flex;
+            border-radius: 12px;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 30px;
+            background-color: $bg-button;
+            
+            @include text-font();
+            i{
+                font-size: 24px;
+                margin-top: 6px;
+            }
+        }
+        .input-container{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: start;
+            min-width: 320px;
+            .text-label{
+                @include text-font(
+                $font-weight: 500,
+                $font-size: 14px,
+                $line-height: 20px,
+                )
+            }
+            .input{
+                padding: 14px 12px;
+                border-radius: 6px;
+                background-color: $text-color;
+                border: 1px solid #D1D5DB;
+                min-width: 320px;
+                //Browser compability
+                &::placeholder,
+                &::-webkit-input-placeholder,
+                &:-moz-placeholder,
+                &::-moz-placeholder,
+                &:-ms-input-placeholder {
+                  @include text-font(
+                    $font-weight: 400,
+                    $font-size: 14px,
+                    $line-height: 20px
+                  );
+                  color: #9CA3AF;
+
+                }
+            }
+        }
+        .submit-button{
+            @include button(
+            $padding-top: 18px,
+            $padding-right: 136px,
+            $padding-bottom: 18px,
+            $padding-left: 136px);
+            &:hover{
+                @include button-hover();
+            }
+        }
+        .register-link{
+            @include text-font(
+                $font-weight: 400,
+                $font-size: 12px,
+                $line-height: 20px
+              );
+        span{
+            color:$bg-button;
+            cursor: pointer;
+        }    
+        }
+
+        
+    }
+}
+
+//MEDIA for  smaller than 572px
+@media (max-width:572px){
+    .login-register-container{
+        padding: 24px;
+    }
+}
+//MEDIA for  smaller than 481px
+@media (max-width:481px){
+    .login-register-container{
+        padding: 18px;
+        .login-register-content{
+            gap: 24px;
+            min-width: 320px;
+            .title{
+                font-size: 34px
+            }
+            .text{
+                font-size: 16px
+            }
+            .input-container{
+                min-width: 270px;
+               
+                .input{          
+                    min-width: 280px;
+                }
+            }
+            .submit-button{
+                @include button(
+                $padding-right: 106px,
+                $padding-left: 106px);
+            }  
+        }
+    }
+}

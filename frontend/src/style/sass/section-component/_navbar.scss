@@ -1,0 +1,41 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-width: 360px;
+    .today-date{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $bg-button;
+        border-radius: 50%;
+        text-transform: uppercase;
+        min-width: 64px;
+        min-height: 64px;
+
+        &-text{
+            color: $text-color;
+            @include  text-font(
+            $font-weight: 300,
+            $font-size: 14px,
+            );
+        }
+    }
+    .link{
+        display: flex;
+        gap: 24px;
+        &-item{
+            @include  text-font(
+                $font-weight: 300,
+                $font-size: 14px,
+                );
+            cursor: pointer;
+            &:hover{
+                color: $bg-button;
+            }    
+        }
+    }
+}

@@ -1,0 +1,67 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.user-congrats{
+    display: flex;
+    flex-direction: column;
+    &-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        .flame{
+            padding-top: 64px;
+        }
+        .title{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .text-title{
+                @include header-font(
+                    $font-size: 32px,
+                );
+                color: $bg-button;
+            }
+            .text-text{
+                @include header-font(
+                    $font-size: 24px,
+                );
+                max-width: 260px;
+                text-align: center;
+            }
+        }
+        .quote-container{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 16px;
+            width: 90%;
+            border-radius: 12px;
+            background-color:$bg-form;
+            
+            .title-quote{
+                @include header-font(
+                    $font-size: 16px,
+                    $line-height: normal,
+                );
+            }
+            .text-quote{
+                @include text-font(
+                    $font-size: 16px,
+                    $text-align:left,
+                );
+            }
+        }
+        .go-home-btn{
+            @include button(
+            $border-radius:999px,
+            $font-size: 16px,
+            $padding-top: 18px,
+            $padding-right: 0px,
+            $padding-bottom: 18px,
+            $padding-left: 0px);
+            @include button-hover();
+            width: 90%;
+        }
+    }
+}

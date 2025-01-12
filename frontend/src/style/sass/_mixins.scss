@@ -1,0 +1,60 @@
+@use './variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
+//Header text
+@mixin header-font(
+  $font-family: 'Onest',
+  $font-weight: 700,
+  $font-size: 40px,
+  $line-height: 51px,
+  $text-align: left
+) {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-align: $text-align;
+  color: $text-color;
+}
+//Simple text
+@mixin text-font(
+  $font-family: 'Onest',
+  $font-weight: 400,
+  $font-size: 20px,
+  $line-height: 25.5px,
+  $text-align: center
+) {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-align: $text-align;
+  color: $text-color;
+
+}
+//Mixin for button
+@mixin button(
+  $border-radius:999px,
+  $font-size: 16px,
+  $padding-top: 18px,
+  $padding-right: 24px,
+  $padding-bottom: 18px,
+  $padding-left: 24px
+) {
+  border-radius: $border-radius;
+  background: $bg-button;
+  color: $text-color;
+  font-size: $font-size;
+  @include text-font(500, $font-size, 20.4px, center);
+  padding: $padding-top $padding-right $padding-bottom $padding-left;
+}
+//Hover for button
+@mixin button-hover($base-color: #E57BD8, $hover-lighten: 10%) {
+  &:hover {
+    background: lighten($base-color, $hover-lighten);
+    color: darken($base-color, 20%);
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+}
+
+
