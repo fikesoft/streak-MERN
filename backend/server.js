@@ -22,7 +22,7 @@ if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'))
 }
 app.use(cors({
-    origin: 'http://localhost:3000', // Replace with your frontend URL
+    origin: 'https://quotes-front.onrender.com', // Replace with your frontend URL
     credentials: true, // Allow cookies to be sent
 }));
 app.use(express.json());
