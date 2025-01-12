@@ -46,7 +46,7 @@ export const registerUsers = async (req, res) => {
         // Set the token as an HTTP-only cookie
         res.cookie('token', token, {
             httpOnly: true, // Prevent JavaScript access
-            secure: false, // HTTPS in production
+            secure: true,
             sameSite: 'None', // Prevent CSRF attacks
             maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
         });
@@ -92,8 +92,8 @@ export const loginUser = async (req, res) => {
                 // Set the token as an HTTP-only cookie
                 res.cookie('token', token, {
                     httpOnly: true,
-                    secure: false,
-                    sameSite: 'Lax',
+                    secure: true,
+                    sameSite: 'None',
                     maxAge: 24 * 60 * 60 * 1000,
                 });
                 return res.status(200).json({
@@ -134,8 +134,8 @@ export const loginUser = async (req, res) => {
         // Set the token as an HTTP-only cookie
         res.cookie('token', token, {
             httpOnly: true,
-            secure: false,
-            sameSite:'Lax',
+            secure: true,
+            sameSite: 'None',
             maxAge: 24 * 60 * 60 * 1000,
         });
 
@@ -156,8 +156,8 @@ export const logOutUser = (req,res)=>{
         // Clear the token cookie
         res.clearCookie('token', {
             httpOnly: true,
-            secure:false, // HTTPS in production
-            sameSite: 'Lax', // Prevent CSRF attacks
+            secure: true,
+            sameSite: 'None', // Prevent CSRF attacks
         });
         
 
